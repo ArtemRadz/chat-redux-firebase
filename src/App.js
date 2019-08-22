@@ -1,17 +1,13 @@
 import React from 'react';
 
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import Main from './containers/Main/Main';
 
-const App = () => {
-  return (
-    <React.StrictMode>
-      <div className="App">
-        <Header />
-        <Main />
-      </div>
-    </React.StrictMode>
-  );
-};
+const App = () => (
+  <>
+    <Header />
+    <Main />
+  </>
+);
 
 export default App;
