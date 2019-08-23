@@ -18,8 +18,7 @@ export default function authReducer(state = initialState.auth, action) {
         email: null,
         displayName: null,
         photoURL: null,
-        uid: null,
-        isAdmin: false
+        uid: null
       };
     case SIGN_IN:
       return {
