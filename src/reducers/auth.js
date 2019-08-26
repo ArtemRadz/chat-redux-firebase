@@ -1,13 +1,8 @@
 import initialState from '../initialState';
-import {
-  SIGN_IN,
-  SIGN_OUT,
-  ATTEMPTING_LOGIN,
-  SET_AS_ADMIN
-} from '../constants';
+import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN, SET_AS_ADMIN } from '../constants';
 
-export default function authReducer(state = initialState.auth, action) {
-  switch (action.type) {
+export default function authReducer(state = initialState.auth, { type, payload }) {
+  switch (type) {
     case ATTEMPTING_LOGIN:
       return {
         status: 'AWAITING_AUTH_RESPONSE'
@@ -23,10 +18,10 @@ export default function authReducer(state = initialState.auth, action) {
     case SIGN_IN:
       return {
         status: 'SIGNED_IN',
-        email: action.email,
-        displayName: action.displayName,
-        photoURL: action.photoURL,
-        uid: action.uid,
+        email: payload.email,
+        displayName: payload.displayName,
+        photoURL: payload.photoURL,
+        uid: payload.uid,
         isAdmin: false
       };
     case SET_AS_ADMIN:

@@ -2,37 +2,33 @@ import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN } from '../constants';
 
 import { auth, googleAuthProvider } from '../firebase/firebase';
 
-export const signIn = () => {
-  return dispatch => {
-    dispatch({ type: ATTEMPTING_LOGIN });
-    auth.signInWithPopup(googleAuthProvider);
-  };
+export const signIn = () => dispatch => {
+  dispatch({ type: ATTEMPTING_LOGIN });
+  auth.signInWithPopup(googleAuthProvider);
 };
 
-export const signOut = () => {
-  return dispatch => {
-    dispatch({ type: ATTEMPTING_LOGIN });
-    auth.signOut();
-  };
+export const signOut = () => dispatch => {
+  dispatch({ type: ATTEMPTING_LOGIN });
+  auth.signOut();
 };
 
-export const startListeningToAuthChanges = () => {
-  return dispatch => {
-    dispatch({ type: ATTEMPTING_LOGIN });
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        dispatch({
-          type: SIGN_IN,
+export const startListeningToAuthChanges = () => dispatch => {
+  dispatch({ type: ATTEMPTING_LOGIN });
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      dispatch({
+        type: SIGN_IN,
+        payload: {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
           photoURL: user.photoURL
-        });
-      } else {
-        dispatch({
-          type: SIGN_OUT
-        });
-      }
-    });
-  };
+        }
+      });
+    } else {
+      dispatch({
+        type: SIGN_OUT
+      });
+    }
+  });
 };
