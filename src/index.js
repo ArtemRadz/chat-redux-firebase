@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
+import { startListeningToAuthChanges } from './actions/auth';
 
 import App from './App';
 
 import './index.css';
+
+store.dispatch(startListeningToAuthChanges());
 
 ReactDOM.render(
   <Provider store={store}>
