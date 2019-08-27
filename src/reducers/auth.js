@@ -1,7 +1,7 @@
 import initialState from '../initialState';
 import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN, SET_AS_ADMIN } from '../constants';
 
-export default function authReducer(state = initialState.auth, { type, payload }) {
+const authReducer = (state = initialState.auth, { type, payload }) => {
   switch (type) {
     case ATTEMPTING_LOGIN:
       return {
@@ -29,4 +29,6 @@ export default function authReducer(state = initialState.auth, { type, payload }
     default:
       return state;
   }
-}
+};
+
+export default authReducer;

@@ -5,6 +5,19 @@ const initialState = {
     displayName: null,
     photoURL: null,
     uid: null
+  },
+  users: {
+    firstUser: {
+      displayName: 'Artem Radzivon',
+      email: 'artemradzivon@gmail.com',
+      photoURL:
+        'https://lh5.googleusercontent.com/-em0gBJ0PPmQ/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfipaziVIRM9G3FRFgWeBUJOSJcmw/photo.jpg'
+    },
+    secondUser: {
+      displayName: 'Place Kitten',
+      email: 'kitten@example.com',
+      photoURL: 'https://placekitten.com/g/200/200'
+    }
   }
 };
 
