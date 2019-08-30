@@ -6,6 +6,18 @@ const initialState = {
     photoURL: null,
     uid: null
   },
+  messages: {
+    firstMessage: {
+      content: 'First message',
+      timeStamp: Date.now() - 600,
+      uid: 'firstUser'
+    },
+    secondMessage: {
+      content: 'Second message',
+      timeStamp: Date.now() - 540,
+      uid: 'secondUser'
+    }
+  },
   users: {
     firstUser: {
       displayName: 'Artem Radzivon',

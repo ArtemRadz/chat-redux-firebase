@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import UsersContainer from '../../containers/UsersContainer';
+import MessagesContainer from '../../containers/MessagesContainer';
 
 import Auth from '../Auth/Auth';
 import User from '../User/User';
@@ -15,7 +15,7 @@ const Main = ({ auth, signIn, signOut }) => {
     <main id="main-component">
       {auth.status === 'ANONYMOUS' && <Auth signIn={signIn} />}
       {auth.status === 'SIGNED_IN' && <User user={auth} signOut={signOut} />}
-      {auth.status === 'SIGNED_IN' && <UsersContainer />}
+      {auth.status === 'SIGNED_IN' && <MessagesContainer />}
       {auth.status === 'AWAITING_AUTH_RESPONSE' && <Loading />}
     </main>
   );

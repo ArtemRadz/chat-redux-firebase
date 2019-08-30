@@ -6,3 +6,7 @@ export const SET_AS_ADMIN = 'SET_AS_ADMIN';
 
 //user constants
 export const ADD_USER = 'ADD_USER';
+
+//messages constants
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const DELETE_MESSAGE = 'DELETE_MESSAGE';
