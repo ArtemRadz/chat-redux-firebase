@@ -1,7 +1,6 @@
-import initialState from '../initialState';
 import { ADD_MESSAGE, DELETE_MESSAGE } from '../constants';
 
-const messagesReducer = (state = initialState.messages, { type, payload }) => {
+const messagesReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ADD_MESSAGE:
       return {
@@ -15,6 +14,7 @@ const messagesReducer = (state = initialState.messages, { type, payload }) => {
     case DELETE_MESSAGE: {
       const copyMessagesState = Object.assign({}, state);
       delete copyMessagesState[payload.key];
+
       return copyMessagesState;
     }
     default:

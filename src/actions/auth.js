@@ -1,7 +1,8 @@
 import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN } from '../constants';
 
-import { auth, googleAuthProvider } from '../firebase/firebase';
-import { addUser } from './users';
+import { auth, googleAuthProvider, database } from '../firebase/firebase';
+
+const userRef = database.ref('users');
 
 export const signIn = () => dispatch => {
   dispatch({ type: ATTEMPTING_LOGIN });
@@ -26,11 +27,17 @@ export const startListeningToAuthChanges = () => dispatch => {
           photoURL: user.photoURL
         }
       });
-      dispatch(addUser(user));
+
+      const userData = (({ uid, displayName, photoURL, email }) => ({
+        uid,
+        displayName,
+        photoURL,
+        email
+      }))(user);
+
+      userRef.child(user.uid).set(userData);
     } else {
-      dispatch({
-        type: SIGN_OUT
-      });
+      dispatch({ type: SIGN_OUT });
     }
   });
 };

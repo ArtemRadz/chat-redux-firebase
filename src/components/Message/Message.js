@@ -6,21 +6,21 @@ import Button from '../Button/Button';
 
 import './Message.css';
 
-const Message = ({ uid, messageContent, deleteMessage }) => {
+const Message = ({ uid, content, deleteMessage }) => {
   const handleClick = () => {
     deleteMessage(uid);
   };
 
   return (
     <div id="message-item">
-      <p>{messageContent}</p>
+      <p>{content}</p>
       <Button title={'Delete'} handleClick={handleClick} />
     </div>
   );
 };
 
 Message.propTypes = {
-  messageContent: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
   deleteMessage: PropTypes.func.isRequired
 };
 

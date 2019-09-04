@@ -1,5 +1,9 @@
 import { ADD_USER } from '../constants';
 
+import { database } from '../firebase/firebase';
+
+const userRef = database.ref('users');
+
 export const addUser = user => {
   return {
     type: ADD_USER,
@@ -10,4 +14,10 @@ export const addUser = user => {
       photoURL: user.photoURL
     }
   };
+};
+
+export const startListeningForUsers = () => dispatch => {
+  userRef.on('child_added', snapshot => {
+    dispatch(addUser(snapshot.val()));
+  });
 };

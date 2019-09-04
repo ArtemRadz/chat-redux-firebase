@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 
-import { deleteMessage } from '../actions/messages';
+import { destroyMessage } from '../actions/messages';
 
 import Messages from '../components/Messages/Messages';
 
-const mapStateToProps = ({ messages, users, auth }) => {
-  return { messages, users, auth };
+const mapStateToProps = ({ messages }) => {
+  return { messages };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteMessage(key) {
-      dispatch(deleteMessage(key));
+      dispatch(destroyMessage(key));
     }
   };
 };

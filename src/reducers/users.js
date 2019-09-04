@@ -1,7 +1,6 @@
-import initialState from '../initialState';
 import { ADD_USER } from '../constants';
 
-const usersReducer = (state = initialState.users, { type, payload }) => {
+const usersReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ADD_USER:
       return {
