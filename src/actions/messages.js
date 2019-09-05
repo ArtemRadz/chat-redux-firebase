@@ -2,7 +2,7 @@ import { ADD_MESSAGE, DELETE_MESSAGE } from '../constants';
 
 import { database } from '../firebase/firebase';
 
-import { clearNewMessage } from './new-message';
+import { clearNewMessage } from './newMessage';
 
 const messagesRef = database.ref('messages');
 

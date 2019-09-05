@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import { updateNewMessage } from '../actions/new-message';
+import { updateNewMessage } from '../actions/newMessage';
 import { createMessage } from '../actions/messages';
 
-import NewMessage from '../components/NewMessage/NewMessage';
+import FormMessage from '../components/FormMessage/FormMessage';
 
 const mapStateToProps = ({ newMessage, auth }) => {
   return { newMessage, auth };
@@ -23,4 +23,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewMessage);
+)(FormMessage);

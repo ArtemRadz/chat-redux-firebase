@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 
-import './NewMessage.css';
+import './FormMessage.css';
 
-const NewMessage = ({ newMessage, auth, handleChange, handleSubmit }) => {
+const FormMessage = ({ newMessage, auth, handleChange, handleSubmit }) => {
   const onClickSubmit = event => {
     event.preventDefault();
     handleSubmit(newMessage, auth.uid);
@@ -23,11 +23,11 @@ const NewMessage = ({ newMessage, auth, handleChange, handleSubmit }) => {
   );
 };
 
-NewMessage.propTypes = {
+FormMessage.propTypes = {
   newMessage: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
-export default NewMessage;
+export default FormMessage;

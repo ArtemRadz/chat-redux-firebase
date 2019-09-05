@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import authReducer from './auth';
 import usersReducer from './users';
 import messagesReducer from './messages';
-import newMessageReducer from './new-message';
+import newMessageReducer from './newMessage';
 
 const reducer = combineReducers({
   auth: authReducer,

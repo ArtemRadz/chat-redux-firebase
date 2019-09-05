@@ -11,6 +11,6 @@ export const ADD_USER = 'ADD_USER';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 
-//new-message constants
+//newMessage constants
 export const UPDATE_NEW_MESSAGE = 'UPDATE_NEW_MESSAGE';
 export const CLEAR_NEW_MESSAGE = 'CLEAR_NEW_MESSAGE';
