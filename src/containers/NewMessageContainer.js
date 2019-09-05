@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateNewMessage, clearNewMessage } from '../actions/new-message';
+import { updateNewMessage } from '../actions/new-message';
 import { createMessage } from '../actions/messages';
 
 import NewMessage from '../components/NewMessage/NewMessage';
@@ -14,8 +14,7 @@ const mapDispatchToProps = dispatch => {
     handleChange(event) {
       dispatch(updateNewMessage(event.target.value));
     },
-    handleSubmit(event, content, uid) {
-      event.preventDefault();
+    handleSubmit(content, uid) {
       dispatch(createMessage({ content, uid }));
     }
   };

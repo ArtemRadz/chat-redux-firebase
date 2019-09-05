@@ -2,16 +2,26 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+
 import './NewMessage.css';
 
-const NewMessage = ({ newMessage, auth, handleChange, handleSubmit }) => (
-  <form onSubmit={event => handleSubmit(event, newMessage, auth.uid)}>
-    <label>
-      <input type="text" value={newMessage} onChange={handleChange} />
-      <input type="submit" value="Post" disabled={!newMessage.length} />
-    </label>
-  </form>
-);
+const NewMessage = ({ newMessage, auth, handleChange, handleSubmit }) => {
+  const onClickSubmit = event => {
+    event.preventDefault();
+    handleSubmit(newMessage, auth.uid);
+  };
+
+  return (
+    <form className="form-message">
+      <Input label={'New message'} value={newMessage} handleChange={handleChange} />
+      <Button onClick={onClickSubmit} disabled={!newMessage.length} style={{ marginLeft: '15px' }}>
+        Post
+      </Button>
+    </form>
+  );
+};
 
 NewMessage.propTypes = {
   newMessage: PropTypes.string.isRequired,

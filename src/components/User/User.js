@@ -15,7 +15,7 @@ const User = ({ user, signOut }) => {
       <div className="user-container">
         <p>{displayName}</p>
         <p>{email}</p>
-        <Button title={'Sign Out'} handleClick={signOut} />
+        <Button onClick={signOut}>Sign Out</Button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-#button-component {
+.button-component {
   color: #fff;
   padding: 0 15px;
   height: 30px;
@@ -9,6 +9,6 @@
   cursor: pointer;
 }
 
-#button-component:disabled {
+.button-component:disabled {
   opacity: 0.5;
 }

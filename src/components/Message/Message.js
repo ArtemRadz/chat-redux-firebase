@@ -14,7 +14,7 @@ const Message = ({ uid, content, deleteMessage }) => {
   return (
     <div id="message-item">
       <p>{content}</p>
-      <Button title={'Delete'} handleClick={handleClick} />
+      <Button onClick={handleClick}>Delete</Button>
     </div>
   );
 };

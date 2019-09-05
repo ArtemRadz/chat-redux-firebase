@@ -6,7 +6,7 @@ import './Auth.css';
 
 const Auth = ({ signIn }) => (
   <div id="sign-in">
-    <Button title={'Sign In'} handleClick={signIn} />
+    <Button onClick={signIn}>Sign In</Button>
   </div>
 );
 
