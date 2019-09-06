@@ -8,7 +8,7 @@ const messagesReducer = (state = {}, { type, payload }) => {
         [payload.key]: {
           uid: payload.uid,
           content: payload.content,
-          timeStamp: payload.content
+          timeStamp: payload.timeStamp
         }
       };
     case DELETE_MESSAGE: {

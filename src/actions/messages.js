@@ -6,13 +6,14 @@ import { clearNewMessage } from './newMessage';
 
 const messagesRef = database.ref('messages');
 
-export const addMessage = (key, { content, uid }) => {
+export const addMessage = (key, { uid, content, timeStamp }) => {
   return {
     type: ADD_MESSAGE,
     payload: {
       key,
       uid,
-      content
+      content,
+      timeStamp
     }
   };
 };
@@ -28,7 +29,7 @@ export const deleteMessage = key => {
 
 export const createMessage = ({ content, uid }) => dispatch => {
   const message = {
-    timeStamp: Date.now(),
+    timeStamp: new Date().toLocaleString(),
     content,
     uid
   };

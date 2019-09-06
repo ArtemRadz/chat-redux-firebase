@@ -6,16 +6,23 @@ import Message from '../Message/Message';
 
 import './Messages.css';
 
-const Messages = ({ messages, deleteMessage }) => {
+const Messages = ({ users, currentUser, messages, deleteMessage }) => {
   const messagesArray = Object.entries(messages);
 
   return (
-    <div id="messages-container">
+    <section id="messages-container">
       {messagesArray.length !== 0 && <p>Messages:</p>}
       {messagesArray.map(([key, message]) => (
-        <Message key={key} uid={key} content={message.content} deleteMessage={deleteMessage} />
+        <Message
+          key={key}
+          id={key}
+          user={users[message.uid]}
+          belongsToUser={currentUser.uid && message.uid === currentUser.uid}
+          {...message}
+          deleteMessage={deleteMessage}
+        />
       ))}
-    </div>
+    </section>
   );
 };
 

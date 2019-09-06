@@ -4,8 +4,8 @@ import { destroyMessage } from '../actions/messages';
 
 import Messages from '../components/Messages/Messages';
 
-const mapStateToProps = ({ messages }) => {
-  return { messages };
+const mapStateToProps = ({ auth: currentUser, users, messages }) => {
+  return { currentUser, users, messages };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -6,16 +6,20 @@ import Button from '../Button/Button';
 
 import './Message.css';
 
-const Message = ({ uid, content, deleteMessage }) => {
+const Message = ({ id, content, timeStamp, user, belongsToUser, deleteMessage }) => {
   const handleClick = () => {
-    deleteMessage(uid);
+    deleteMessage(id);
   };
 
+  const className = belongsToUser ? 'current-user' : '';
+
   return (
-    <div id="message-item">
-      <p>{content}</p>
-      <Button onClick={handleClick}>Delete</Button>
-    </div>
+    <article id="message-item" className={className}>
+      <h4 className="message-user-name">{user.displayName}</h4>
+      <span className="message-time-post">{timeStamp}</span>
+      <p className="message-content">{content}</p>
+      {belongsToUser && <Button onClick={handleClick}>Delete</Button>}
+    </article>
   );
 };
 
