@@ -20,6 +20,7 @@ const Messages = ({ users, currentUser, messages, deleteMessage }) => {
           belongsToUser={currentUser.uid && message.uid === currentUser.uid}
           {...message}
           deleteMessage={deleteMessage}
+          isAdmin={currentUser.isAdmin}
         />
       ))}
     </section>

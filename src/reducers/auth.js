@@ -25,7 +25,7 @@ const authReducer = (state = initialState.auth, { type, payload }) => {
         isAdmin: false
       };
     case SET_AS_ADMIN:
-      return Object.assign({}, state, { isAdmin: true });
+      return { ...state, isAdmin: true };
     default:
       return state;
   }

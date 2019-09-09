@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 
 import './Message.css';
 
-const Message = ({ id, content, timeStamp, user, belongsToUser, deleteMessage }) => {
+const Message = ({ id, content, timeStamp, user, belongsToUser, isAdmin, deleteMessage }) => {
   const handleClick = () => {
     deleteMessage(id);
   };
@@ -18,7 +18,7 @@ const Message = ({ id, content, timeStamp, user, belongsToUser, deleteMessage })
       <h4 className="message-user-name">{user.displayName}</h4>
       <span className="message-time-post">{timeStamp}</span>
       <p className="message-content">{content}</p>
-      {belongsToUser && <Button onClick={handleClick}>Delete</Button>}
+      {(belongsToUser || isAdmin) && <Button onClick={handleClick}>Delete</Button>}
     </article>
   );
 };

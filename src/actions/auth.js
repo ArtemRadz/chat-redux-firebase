@@ -1,8 +1,9 @@
-import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN } from '../constants';
+import { SIGN_IN, SIGN_OUT, ATTEMPTING_LOGIN, SET_AS_ADMIN } from '../constants';
 
 import { auth, googleAuthProvider, database } from '../firebase/firebase';
 
 const userRef = database.ref('users');
+const adminRef = database.ref('admins');
 
 export const signIn = () => dispatch => {
   dispatch({ type: ATTEMPTING_LOGIN });
@@ -36,6 +37,13 @@ export const startListeningToAuthChanges = () => dispatch => {
       }))(user);
 
       userRef.child(user.uid).set(userData);
+
+      adminRef
+        .child(user.uid)
+        .once('value')
+        .then(snapshot => {
+          if (snapshot.val()) dispatch({ type: SET_AS_ADMIN });
+        });
     } else {
       dispatch({ type: SIGN_OUT });
     }

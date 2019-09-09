@@ -12,7 +12,7 @@ const messagesReducer = (state = {}, { type, payload }) => {
         }
       };
     case DELETE_MESSAGE: {
-      const copyMessagesState = Object.assign({}, state);
+      const copyMessagesState = { ...state };
       delete copyMessagesState[payload.key];
 
       return copyMessagesState;
